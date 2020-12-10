@@ -36,15 +36,15 @@ public class Partida{
 	}
 	public void menu(){
 		int op=0;
+		this.mapagenerico = new Mapa();	
 		System.out.println("\n\n********************************************************\n\n");
 		System.out.println("Comienza el juego...");
 		System.out.println("\n\n********************************************************\n\n");
+		System.out.println("Usted se encuentra en : "+ mapagenerico.getMapagenerico());
 		try{
 			do{
 
-			this.mapagenerico = new Mapa();	
-			System.out.println("\n\n********************************************************\n\n");
-			System.out.println("Usted se encuentra en : "+ mapagenerico.getMapagenerico());
+			System.out.println("Usted se encuentra en : "+ mapagenerico.getRandomString());
 			System.out.println("\n\n********************************************************\n\n");
 			System.out.println("Selecciona la acción que quieres realizar: ");
 			System.out.println("1.- Combate. ");
