@@ -17,9 +17,4 @@ public class Juego{
 		this.partidas[this.contadorPartidas]= new Partida(pokedexGral);
 	}
 
-	public Mapa getMapa() {
-		return this.mapa;
-	}
-
-
 }

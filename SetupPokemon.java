@@ -1,4 +1,5 @@
 public class SetupPokemon{
+
 	public static final int cantidadPokemones = 9;
 	public static final int cantidadPartidas = 10;
 	public static final int cantidadCombates = 10;
@@ -9,5 +10,11 @@ public class SetupPokemon{
 	public static final int velocidad = 10;
 	public static final String [] nombres = {"Pikachu","Squirtle","Bulbasaur","Ponyta","Pidgeotto","Charmander","Charizard","Rattata","Arcanine"};
 	public static final String [][] ataques = {{"Impactrueno","Látigo","Gruñido"},{"Látigo","Placaje","Burbuja"},{"Placaje","Gruñido","Drenadoras"},{"Ataque 1","Ataque2","Ataque3"},{"Ataque 1"," Ataque2"," Ataque3"},{"Ataque 1"," Ataque2"," Ataque3"},{"Ataque 1"," Ataque2"," Ataque3"},{"Ataque 1"," Ataque2"," Ataque3"},{"Ataque 1"," Ataque2"," Ataque3"}};
+	public static final String [] puntosestablecidos = {"Nunoa","Curacavi","Independencia","Providencia","Chicureo","Puente Alto"};
+    // public static final String [] mapaespecifico = {"Nunoa","Curacavi","Independencia","Providencia","Chicureo","Puente Alto","Vitacura","Las Condes","La Florida"};
+	
+	
 	//public static final String [][] valores = {{10,0,0,5,0,2,0,0,2},{5,0,2,...},...} ?;
+
+	
 }

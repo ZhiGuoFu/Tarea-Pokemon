@@ -1,6 +1,7 @@
 public class Pokedex{
 	private Pokemon [] pokemones;
 	private String [] nombreAtaques = new String[SetupPokemon.cantidadAtaques];
+	
 
 	Pokedex(){
 		pokemones = new Pokemon[SetupPokemon.cantidadPokemones];
@@ -23,14 +24,20 @@ public class Pokedex{
 	public void listarPokedex(){
 		System.out.println("Pokedex Personal");
 		System.out.println("======= ========\n");
+		
 		for(int i=0;i<SetupPokemon.cantidadPokemones;i++){
 			if(pokemones[i].getCapturado()){
+
 				System.out.println("Id: "+pokemones[i].getId()+"- Nombre: "+pokemones[i].getNombre());
+				System.out.println("Experiencia: "+pokemones[i].getExperiencia());
+				pokemones[i].subirNivel(pokemones[i].getExperiencia());
+				
 				for(int j=0;j<3;j++){
 					System.out.println("Ataque "+pokemones[i].getAtaques()[j].getNombre()+" ");
 					System.out.println("*** Daño:"+pokemones[i].getAtaques()[j].getDano());
 					System.out.println("*** Cura:"+pokemones[i].getAtaques()[j].getCura());
 					System.out.println("*** Bloqueo:"+pokemones[i].getAtaques()[j].getBloqueo());
+					
 				}
 				System.out.println("**********************");
 			}

@@ -1,5 +1,8 @@
 import java.math.*;
 import java.io.*;
+import java.util.Random.*;
+
+
 
 
 public class Combate{
@@ -8,10 +11,11 @@ public class Combate{
 	private int indexRival;
 	BufferedReader buffer;
 
+
 	Combate(Pokemon player1, Pokedex pokedexGral){
 		buffer = new BufferedReader(new InputStreamReader(System.in));
 		this.player1 = player1;
-		indexRival = (int)Math.round(Math.random()*10);
+		indexRival = (int)Math.round(Math.random()*8);
 		this.player2 = pokedexGral.getPokemon(indexRival);
 	}
 
@@ -26,11 +30,22 @@ public class Combate{
 
 			player2.recibirAtaque(player1.getAtaques()[op-1]);
 			System.out.println("\n\n********************************************************\n");
-			System.out.println(player2.getNombre()+" tu nivel de Puntos de Salud es "+player2.getPs());
+			System.out.println(player2.getNombre()+"  Enemigo tu nivel de Puntos de Salud es "+player2.getPs());
 			System.out.println("\n********************************************************\n\n");
 		}catch(IOException e){
 			System.out.println("Error de lectura desde el teclado...");
 		}
+	}
+
+	public void ataque2(Pokemon player1,Pokemon player2){
+		
+		int randomataque = (int) (Math.random()*2);
+		player2.recibirAtaque(player1.getAtaques()[randomataque]);
+		System.out.println(player1.getNombre()+ " Enemigo Uso " +player1.getAtaques()[randomataque].getNombre());
+		System.out.println("\n\n********************************************************\n");
+		System.out.println(player2.getNombre()+" tu nivel de Puntos de Salud es "+player2.getPs());
+		System.out.println("\n********************************************************\n\n");
+		
 	}
 
 	public int combatir(){
@@ -47,16 +62,15 @@ public class Combate{
 				player2.restaurar();
 				break;
 			} 
-			ataque(player2,player1);
-			if(revisarTriunfo(player1)){
-				System.out.println("\n\n********************************************************\n\n");
-				System.out.println("Haz perdido la partida!!");
-				System.out.println("\n\n********************************************************\n\n");
-				out = -1;
-				player1.restaurar();
-				player2.restaurar();
-				break;
-			}
+			 ataque2(player2,player1);
+			 if(revisarTriunfo(player1)){
+			 	System.out.println("\n\n********************************************************\n\n");
+			 	System.out.println("Haz perdido la partida!!");
+			 	out = -1;
+			 	player1.restaurar();
+			 	player2.restaurar();
+			 	break;
+			 }
 		}
 		return out;
 	}

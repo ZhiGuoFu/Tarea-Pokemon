@@ -1,4 +1,6 @@
 import java.io.*;
+
+
 public class Partida{
 	private BufferedReader buffer;
 	private Personaje jugador;
@@ -6,7 +8,7 @@ public class Partida{
 	private int combateActual;
 	private Pokedex pokedexGral;
 	private Mapa mapagenerico;
-
+	private int experiencia=100;
 
 	Partida(Pokedex pokedexGral){
 		buffer = new BufferedReader(new InputStreamReader(System.in));
@@ -39,7 +41,7 @@ public class Partida{
 		System.out.println("\n\n********************************************************\n\n");
 		System.out.println("Comienza el juego...");
 		System.out.println("\n\n********************************************************\n\n");
-		System.out.println("Usted se encuentra en : "+ mapagenerico.getMapagenerico());
+		System.out.println("Usted se encuentra en : "+ mapagenerico.getMapagenerico() + " , " + mapagenerico.getMapaespecifico());
 		System.out.println("\n\n********************************************************\n\n");
 
 		try{
@@ -51,7 +53,7 @@ public class Partida{
 			System.out.println("2.- Ver Pokedex. ");
 			System.out.println("3.- Terminar Juego. ");
 			op = Integer.parseInt(buffer.readLine());
-			System.out.println("\n\n********************************************************\n\n");
+			// System.out.println("\n\n********************************************************\n\n");
 			switch(op){
 				case 1: System.out.println("\n\n********************************************************\n\n");
 						crearCombate();
@@ -84,10 +86,14 @@ public class Partida{
 		System.out.println("======= ========\n");
 		for(int i=0;i<n;i++){
 			aux = jugador.getPokedex().getPokemon(i);
+			
 			if(aux.getCapturado())
+				// aux.setCapturado();
 				System.out.println((i+1)+".- "+aux.getNombre());
 		}
+	
 		
+
 		int op=-1;
 		boolean flag=false;
 		do{
@@ -95,19 +101,40 @@ public class Partida{
 			System.out.println("Elije tu pokemon para la batalla....");
 			try{
 				op = Integer.parseInt(buffer.readLine());
+
+				// auxiliar=jugador.getPokedex().getPokemon(op);
+				// if(auxiliar.getCapturado()==true){
+				// System.out.println("FUNCIONA");
+				// }else{
+				// 	System.out.println("NO TIENES AL POKEMON");
+
+				//  }
+
+				while(jugador.getPokedex().getPokemon(op-1).getCapturado()!=true){
+
+					System.out.println("NO TIENES AL POKEMON ,ELIJA OTRO");
+
+					op = Integer.parseInt(buffer.readLine());
+
+
+				}
+
+				
 				flag=true;
 			}catch(IOException e){
 				System.out.println("Error de lectura desde el teclado...");
 			}
 		}while((op<0)||(op>n));
 		System.out.println("\n\n********************************************************\n\n");
-		System.out.println("Usted se encuentra en : "+ mapagenerico.getMapagenerico() + " , " + mapagenerico.getRandomString());
+		System.out.println("Ubicacion Actual : " + mapagenerico.getMapagenerico() + " , " + mapagenerico.getMapaespecifico() + " , " + mapagenerico.getRandomString());
 		System.out.println("\n");
 		System.out.println("Su pokemon para el combate es "+ jugador.getPokedex().getPokemon(op-1).getNombre());
 		System.out.println("\n\n********************************************************\n\n");
 		combates[combateActual] = new Combate(jugador.getPokedex().getPokemon(op-1), pokedexGral);
 		int rival = combates[combateActual].combatir();
 		if (rival > -1){
+			System.out.println("El pokemon " + jugador.getPokedex().getPokemon(op-1).getNombre() + " ha obtenido " + experiencia + " de experiencia por ganar el combate." );
+			jugador.getPokedex().getPokemon(op-1).sumarExperiencia(experiencia);
 			jugador.getPokedex().capturarPokemon(rival);
 			System.out.println("Haz capturado un nuevo pokemon!!!");
 		}
