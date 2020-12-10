@@ -28,7 +28,7 @@ public class Partida{
 			nombre = buffer.readLine();
 			System.out.println("            Ingrese un nombre de usuario: \n            ");
 			usuario = buffer.readLine();
-
+			this.mapagenerico = new Mapa();	
 			this.jugador = new Personaje(1,nombre,usuario,pokedexGral);	
 		}catch(IOException e){
 			System.out.println("Error de lectura desde el teclado...");
@@ -36,15 +36,15 @@ public class Partida{
 	}
 	public void menu(){
 		int op=0;
-		this.mapagenerico = new Mapa();	
 		System.out.println("\n\n********************************************************\n\n");
 		System.out.println("Comienza el juego...");
 		System.out.println("\n\n********************************************************\n\n");
 		System.out.println("Usted se encuentra en : "+ mapagenerico.getMapagenerico());
+		System.out.println("\n\n********************************************************\n\n");
+
 		try{
 			do{
 
-			System.out.println("Usted se encuentra en : "+ mapagenerico.getRandomString());
 			System.out.println("\n\n********************************************************\n\n");
 			System.out.println("Selecciona la acción que quieres realizar: ");
 			System.out.println("1.- Combate. ");
@@ -100,6 +100,8 @@ public class Partida{
 				System.out.println("Error de lectura desde el teclado...");
 			}
 		}while((op<0)||(op>n));
+		System.out.println("\n\n********************************************************\n\n");
+		System.out.println("Usted se encuentra en : "+ mapagenerico.getMapagenerico() + " , " + mapagenerico.getRandomString());
 		System.out.println("\n\n********************************************************\n\n");
 		System.out.println("Su pokemon para el combate es "+ jugador.getPokedex().getPokemon(op-1).getNombre());
 		System.out.println("\n\n********************************************************\n\n");

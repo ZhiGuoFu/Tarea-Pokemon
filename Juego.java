@@ -11,7 +11,7 @@ public class Juego{
 		this.pokedexGral = new Pokedex();
 		this.partidas = new Partida[SetupPokemon.cantidadPartidas]; 
 		this.contadorPartidas = 0;
-		this.mapa= new Mapa();
+		this.mapa = new Mapa();
 	}
 	public void jugar(){
 		this.partidas[this.contadorPartidas]= new Partida(pokedexGral);
@@ -20,5 +20,6 @@ public class Juego{
 	public Mapa getMapa() {
 		return this.mapa;
 	}
+
 
 }
