@@ -31,8 +31,10 @@ public class Pokedex{
 				System.out.println("Id: "+pokemones[i].getId()+"- Nombre: "+pokemones[i].getNombre());
 				System.out.println("Experiencia: "+pokemones[i].getExperiencia());
 				pokemones[i].subirNivel(pokemones[i].getExperiencia());
+				// pokemones[i].getAtaques()[i].mejoraNivel();
 				
 				for(int j=0;j<3;j++){
+					// pokemones[i].mejoraNivel();
 					System.out.println("Ataque "+pokemones[i].getAtaques()[j].getNombre()+" ");
 					System.out.println("*** Daño:"+pokemones[i].getAtaques()[j].getDano());
 					System.out.println("*** Cura:"+pokemones[i].getAtaques()[j].getCura());
