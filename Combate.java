@@ -15,7 +15,7 @@ public class Combate{
 	Combate(Pokemon player1, Pokedex pokedexGral){
 		buffer = new BufferedReader(new InputStreamReader(System.in));
 		this.player1 = player1;
-		indexRival = (int)Math.round(Math.random()*8);
+		indexRival = (int)Math.round(Math.random()*10);
 		this.player2 = pokedexGral.getPokemon(indexRival);
 	}
 
@@ -71,7 +71,7 @@ public class Combate{
 			System.out.println("3.-"+player1.getAtaques()[2].getNombre());
 			op = Integer.parseInt(buffer.readLine());
 
-			if (player1.getPs()==SetupPokemon.defensa){
+			if (player1.getPs()==5){
 				System.out.println(" Su defensa esta al maximo ");
 			}
 			else{
@@ -117,7 +117,7 @@ public class Combate{
 	public void defensa2(Pokemon player2){
 		int randomdefensa = (int) (Math.random()*3);
 		player2.recibirDefensa(player2.getAtaques()[randomdefensa]);
-		System.out.println(player2.getNombre()+ " Enemigo se Protegio con : " +player1.getAtaques()[randomdefensa].getNombre());
+		System.out.println(player2.getNombre()+ " Enemigo se Protegio con : " +player2.getAtaques()[randomdefensa].getNombre());
 		System.out.println(player2.getNombre()+" Enemigo se protegio y Su nivel de Puntos de Salud es "+player2.getPs()+ " y su defensa es : " + player2.getDefensa());
 		System.out.println("\n********************************************************\n\n");
 

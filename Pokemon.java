@@ -28,26 +28,26 @@ public class Pokemon{
 		this.capturado = false;
 		this.visto = false;
 		for(int i=0;i<SetupPokemon.cantidadAtaques;i++){
-			if(this.nivel==2){
-				this.aux=aux+1;
-				this.aux1=aux1+1;
-			}
-			if(this.nivel==3){
-				this.aux=aux+2;
-				this.aux1=aux1+2;
-			}
-			if(this.nivel==4){
-				this.aux=aux+3;
-				this.aux1=aux1+3;
-			}
-			if(this.nivel==5){
-				this.aux=aux+4;
-				this.aux1=aux1+4;
-			}
-			if(this.nivel==6){
-				this.aux=aux+4;
-				this.aux1=aux1+4;
-			}
+			// if(this.nivel==2){
+			// 	this.aux=aux+1;
+			// 	this.aux1=aux1+1;
+			// }
+			// if(this.nivel==3){
+			// 	this.aux=aux+2;
+			// 	this.aux1=aux1+2;
+			// }
+			// if(this.nivel==4){
+			// 	this.aux=aux+3;
+			// 	this.aux1=aux1+3;
+			// }
+			// if(this.nivel==5){
+			// 	this.aux=aux+4;
+			// 	this.aux1=aux1+4;
+			// }
+			// if(this.nivel==6){
+			// 	this.aux=aux+4;
+			// 	this.aux1=aux1+4;
+			// }
 			this.ataques[i] = new Ataque(listaAtaques[i],i+aux,valor-(i+aux),valor/aux1-i);
 		}
 		this.experiencia=0;
@@ -147,7 +147,12 @@ public class Pokemon{
 	public void recibirAtaque(Ataque ataque){
 		if(this.defensa>0){
 			this.defensa -= ataque.getDano();
-		}else{
+		}
+		if(this.defensa<0){
+			this.defensa = 0;
+		}
+		
+		else{
 		this.ps -= ataque.getDano();
 	}
 	}

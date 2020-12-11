@@ -26,15 +26,40 @@ public class Pokedex{
 		System.out.println("======= ========\n");
 		
 		for(int i=0;i<SetupPokemon.cantidadPokemones;i++){
+			
 			if(pokemones[i].getCapturado()){
 
 				System.out.println("Id: "+pokemones[i].getId()+"- Nombre: "+pokemones[i].getNombre());
 				System.out.println("Experiencia: "+pokemones[i].getExperiencia());
 				pokemones[i].subirNivel(pokemones[i].getExperiencia());
-				// pokemones[i].getAtaques()[i].mejoraNivel();
+				
 				
 				for(int j=0;j<3;j++){
-					// pokemones[i].mejoraNivel();
+					if(pokemones[i].getNivel()==2){
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getDano()+1);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getCura()+1);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getBloqueo()+1);
+					}
+					if(pokemones[i].getNivel()==3){
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getDano()+2);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getCura()+2);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getBloqueo()+2);
+					}
+					if(pokemones[i].getNivel()==4){
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getDano()+3);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getCura()+3);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getBloqueo()+3);
+					}
+					if(pokemones[i].getNivel()==5){
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getDano()+4);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getCura()+4);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getBloqueo()+4);
+					}
+					if(pokemones[i].getNivel()==6){
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getDano()+5);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getCura()+5);
+						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getBloqueo()+5);
+					}
 					System.out.println("Ataque "+pokemones[i].getAtaques()[j].getNombre()+" ");
 					System.out.println("*** Daño:"+pokemones[i].getAtaques()[j].getDano());
 					System.out.println("*** Cura:"+pokemones[i].getAtaques()[j].getCura());
