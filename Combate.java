@@ -15,7 +15,7 @@ public class Combate{
 	Combate(Pokemon player1, Pokedex pokedexGral){
 		buffer = new BufferedReader(new InputStreamReader(System.in));
 		this.player1 = player1;
-		indexRival = (int)Math.round(Math.random()*10);
+		indexRival = (int)Math.round(Math.random()*8);
 		this.player2 = pokedexGral.getPokemon(indexRival);
 	}
 

@@ -60,7 +60,8 @@ public class Pokedex{
 						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getCura()+5);
 						pokemones[i].getAtaques()[j].setDano(pokemones[i].getAtaques()[j].getBloqueo()+5);
 					}
-					System.out.println("Ataque "+pokemones[i].getAtaques()[j].getNombre()+" ");
+					System.out.println("Ataque "+pokemones[i].getAtaques()[j].getNombre()
+					);
 					System.out.println("*** Daño:"+pokemones[i].getAtaques()[j].getDano());
 					System.out.println("*** Cura:"+pokemones[i].getAtaques()[j].getCura());
 					System.out.println("*** Bloqueo:"+pokemones[i].getAtaques()[j].getBloqueo());
